@@ -17,10 +17,16 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from django.urls import path
 from api.resources import NoteResource
+from api.resources import RaidResource
+from api.resources import GameNightResource
 
 note_resource = NoteResource()
+raid_resource = RaidResource()
+game_night_resource = GameNightResource()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^api/', include(note_resource.urls))
+    url(r'^api/', include(note_resource.urls)),
+    url(r'^api/', include(game_night_resource.urls)),
+    url(r'^api/', include(RaidResource.urls))
 ]
